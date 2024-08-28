@@ -1,3 +1,13 @@
+<h2>Account Page</h2>
 
-<h2>Accounts Page</h2>
-<img src="/asset/images.jpeg">
+<div *ngIf="user && user.username">
+  <h3>Welcome, {{ user.username }}</h3>
+  <p>Email: {{ user.email }}</p>
+  <p>Birthdate: {{ user.birthdate }}</p>
+  <p>Age: {{ user.age }}</p>
+  <img [src]="user.photo" alt="User Photo" class="profile-photo">
+</div>
+
+<div *ngIf="!user || !user.username">
+  <p>No user details found. Please log in.</p>
+</div>
